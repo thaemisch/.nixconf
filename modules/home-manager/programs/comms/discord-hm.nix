@@ -1,6 +1,6 @@
 { pkgs, lib, config, ...}: {
     options = {
-      discord-hm.enable = lib.mkEnableOption "enables discord"
+      discord-hm.enable = lib.mkEnableOption "enables discord";
     };
 
     config = lib.mkIf config.discord-hm.enable {
