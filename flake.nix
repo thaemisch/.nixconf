@@ -10,6 +10,7 @@
     };
 
     stylix.url = "github:danth/stylix";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: { 
@@ -35,6 +36,7 @@
         ./hosts/wsl/configuration.nix 
         inputs.home-manager.nixosModules.default
         inputs.stylix.nixosModules.stylix
+        inputs.nixos-wsl.nixosModules.default
       ];
     };
   };

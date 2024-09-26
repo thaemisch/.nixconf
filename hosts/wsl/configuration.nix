@@ -2,26 +2,30 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports = [
-      ./hardware-configuration.nix
       ./../../modules/nixos
       inputs.home-manager.nixosModules.default
+      inputs.nixos-wsl.nixosModules.default
     ];
   ############################################
   # HOST SPECIFIC ############################ also change username in #USER section below
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";  
+
   gui-nm.enable = false;
 
-  networking.hostName = "nixos";
+  wsl.enable = true;
+  wsl.defaultUser = "nixos";
+  #networking.hostName = "nixos";
   ############################################
   # BOOTLOADER ###############################
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  #boot.loader.systemd-boot.enable = true;
+  #boot.loader.efi.canTouchEfiVariables = true;
   ############################################
   # NETWORKING ###############################
-  networking.networkmanager.enable = true;
+  #networking.networkmanager.enable = true;
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
