@@ -19,6 +19,8 @@
             neofetch
             onefetch
             tmux
+            # gui utils
+            gscreenshot
             # browsers
             google-chrome
             #music
