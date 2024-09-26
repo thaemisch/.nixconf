@@ -9,5 +9,6 @@
 
     vscode-hm.enable = true;
     kitty-hm.enable = true;
+    discord-hm.enable = true;
   };
   }

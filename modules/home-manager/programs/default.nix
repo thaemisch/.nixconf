@@ -3,5 +3,6 @@
       ./editor
       ./git
       ./term
+      ./comms
     ];
 }
