@@ -4,6 +4,7 @@
     };
 
     config = lib.mkIf config.discord-hm.enable {
+      home.file.".config/Vencord".source = ../../../../dots/progs/Vencord;
       nixpkgs.config.allowUnfree = true;
 
       home.packages = [

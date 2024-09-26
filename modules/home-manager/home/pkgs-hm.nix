@@ -21,6 +21,7 @@
             tmux
             # gui utils
             gscreenshot
+            eyedropper
             # browsers
             google-chrome
             #music
