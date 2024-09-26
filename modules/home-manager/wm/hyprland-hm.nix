@@ -5,7 +5,6 @@
 
   config = lib.mkIf config.hyprland-hm.enable {
     home.file = {
-      ".config/hypr".source = ../../../dots/hyprland/hypr;
       ".config/rofi".source = ../../../dots/hyprland/rofi;
     };
   };

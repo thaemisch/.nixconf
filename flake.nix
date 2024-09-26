@@ -30,6 +30,14 @@
         inputs.stylix.nixosModules.stylix
       ];
     };
+    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {      
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./hosts/desktop/configuration.nix 
+        inputs.home-manager.nixosModules.default
+        inputs.stylix.nixosModules.stylix
+      ];
+    };
     nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {      
       specialArgs = {inherit inputs;};
       modules = [
