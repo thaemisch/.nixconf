@@ -1,0 +1,84 @@
+/*.text_bd79a3 {display: none;}
+.subtext__72c72 {display: none;}
+*/
+.wrapper_a571fb {display: none;}
+.searchBar__621ec {display: none;}
+.inviteToolbar__7cc96 {display: none;}
+.recentsIcon_a585d7 {display: none;}
+.titleWrapper_d6133e {display: none;}
+.divider_bdb894 {display: none;}
+.wrapper_c721cc {display: none;}
+.wrapperVisible_c721cc {display: none;}
+.avatarDecoration_cf681a {display: none;}
+
+/* Dubyas list of annoying stuff he hides in discord using Quick CSS */
+
+/* Disable emoji inspection upsell (ty Regalia) */
+[class^="nitroTextAndBadge_"], button:has([class^="premiumIcon_"]),
+[class^="emojiSection_"] [class^="flex_"] div[class*="text-sm-normal"]
+{
+    display:none;
+}
+
+/* Disable Popup ads */
+.containerWrapper_fa6aa6,                   /* "Like this avatar decoration" popup on user modal */
+container__9dbd2                            /* Profile effect ad */ {
+    display: none;
+}
+
+/* Disable Gift Button(s) (in chat) */
+button[aria-label="Send a gift"] {
+    display: none;
+}
+
+/* Hide things in DMs page */
+li div a[href="/shop"], /* Hide 'Shop' Tab */
+li div a[href="/store"] /* Hide 'Ntiro' Tab */ {
+  display: none;
+}
+
+/* Profile effects */
+[class^="profileEffects"] {
+    display: none;
+}
+
+/* Avatar Decorations */
+svg[class^="avatarDecoration"],             /* Avatar Decorations */
+img[class^="avatarDecoration"],             /* Avatar Decorations in Messages */
+/* Fix 'View Profile' selector with hidden decoration */
+[class*="bannerSVGWrapper_"] > mask > image {
+    display: none;
+}
+[class*=avatarDecorationHint_] > foreignObject {
+  width: 80px;
+  height: 80px;
+  mask: url(#svg-mask-avatar-status-round-80);
+}
+[class*=avatarDecorationHint_] {
+  top: -80px;
+  left: 0px;
+  position: relative;
+}
+
+/* Disable nitro icon on members list hover and opening nitro page */
+/* Some discords have the boosting capitalized, some don't, no clue why. There's probably a cleaner way to do this. */
+div[class*=nameAndDecorators] div[role="button"]:has(svg[aria-label^="Server boosting since"]),
+div[class*=nameAndDecorators] div[role="button"]:has(svg[aria-label^="Server Boosting since"]) {
+    pointer-events: none;
+}
+
+/* Hide 'Explore Discoverable Servers' in server page */
+div[class*="listItem"]:has(div[aria-label="Explore Discoverable Servers"]) {
+  display: none;
+}
+
+/* Make Super Reactions less annoying (ty Regalia) */
+div[class^="effectsWrapper"] {
+    display: none;
+} 
+img.emoji{
+    opacity: 100;
+}
+div[class*="shakeReaction"] {
+    animation: none !important;
+}
