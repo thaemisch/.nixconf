@@ -16,6 +16,12 @@
       nc-home = "nvim ~/.nixconf/hosts/laptop/home.nix";
     };
   };
+
+  programs.direnv = {
+      enable = true;
+      enableZshIntegration = true; # see note on other shells below
+      nix-direnv.enable = true;
+  };
   
   home.file = {
     ".config/hypr".source = ../../dots/hyprland/hypr/hypr-1mon;
