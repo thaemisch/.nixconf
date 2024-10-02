@@ -4,8 +4,9 @@
     };
 
     config = lib.mkIf config.vscode-hm.enable {
-        programs.vscode = {
-            enable = true;
-        };
+      nixpkgs.config.allowUnfree = true;
+      home.packages = with pkgs; [
+        vscode
+      ];
     };
 }
