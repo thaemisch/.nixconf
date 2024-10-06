@@ -19,6 +19,7 @@
             neofetch
             onefetch
             tmux
+            glow
             # gui utils
             gscreenshot
             eyedropper
