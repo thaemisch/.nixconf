@@ -13,6 +13,7 @@
   ############################################
   # HOST SPECIFIC ############################ also change username in #USER section below
   gui-nm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   networking.hostName = "desktop";
 

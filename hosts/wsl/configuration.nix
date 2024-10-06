@@ -15,6 +15,7 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";  
 
   gui-nm.enable = false;
+  services.xserver.desktopManager.gnome.enable = false;
 
   wsl.enable = true;
   wsl.defaultUser = "nixos";
