@@ -6,10 +6,10 @@
   config = lib.mkIf config.hyprland-nm.enable {
     programs.hyprland.enable = true;
 
-    xdg.portal = {
-      enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal ];
-    };
+    #xdg.portal = {
+      #enable = true;
+      #extraPortals = [ pkgs.xdg-desktop-portal ];
+    #};
 
     environment.systemPackages = [
       (pkgs.waybar.overrideAttrs (oldAttrs: {
