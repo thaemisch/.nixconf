@@ -20,6 +20,7 @@
             onefetch
             tmux
             glow
+            aria2
             # gui utils
             gscreenshot
             eyedropper
