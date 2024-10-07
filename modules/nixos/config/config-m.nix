@@ -53,7 +53,7 @@
           wget
           wl-clipboard
           gcc
-          gnome-keyring
+          lxqt.lxqt-policykit
         ];
     };
 }
