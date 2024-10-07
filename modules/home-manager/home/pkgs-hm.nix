@@ -26,8 +26,14 @@
             eyedropper
             # browsers
             google-chrome
-            #music
+            floorp
+            # music
             spotify
+            # notes
+            obsidian
+            # comms
+            whatsie
+            whatsapp-for-linux
         ];
     };
 }

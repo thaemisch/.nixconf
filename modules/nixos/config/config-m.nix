@@ -53,6 +53,7 @@
           wget
           wl-clipboard
           gcc
+          gnome-keyring
         ];
     };
 }
