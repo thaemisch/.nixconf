@@ -193,12 +193,12 @@ background: @bar-bg;
     
 }
 #pulseaudio{
-font-weight: normal;
-font-size: 18px;
-color: #6F8FDB;
+font-weight: 900;
+font-size: 20px;
+color: #81a1c1;
     background:  rgba(22, 19, 32, 0.0);
     opacity: 1;
-    margin: 0px 0px 0px 0px;
+    margin: 1px 1px 1px 1px;
     padding-left: 3px;
     padding-right: 3px;
 }

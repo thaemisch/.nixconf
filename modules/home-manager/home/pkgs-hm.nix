@@ -21,6 +21,9 @@
             tmux
             glow
             aria2
+            # git
+            git
+            gh
             # gui utils
             gscreenshot
             eyedropper
@@ -31,9 +34,16 @@
             spotify
             # notes
             obsidian
+            xournalpp
+            rnote
+            lorien
             # comms
             whatsie
             whatsapp-for-linux
+            # files
+            nautilus
+            # virtualisation
+            bottles
         ];
     };
 }
