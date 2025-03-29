@@ -14,7 +14,8 @@
   # HOST SPECIFIC ############################ also change username in #USER section below
   gui-nm.enable = true;
   services.xserver.desktopManager.gnome.enable = false;
-
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
   networking.hostName = "laptop";
   ############################################
   # BOOTLOADER ###############################
@@ -23,12 +24,13 @@
   ############################################
   # NETWORKING ###############################
   networking.networkmanager.enable = true;
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.wireguard.enable = true;
+  networking.firewall = {
+    allowedUDPPorts = [ 51820 ]; # Clients and peers can use the same port, see listenport
+  };
+
   services.openssh.enable = true;
+
   ############################################
   # USER #####################################
   users.users.tim = {
@@ -52,6 +54,8 @@
 
   environment.systemPackages = with pkgs; [
     brightnessctl
+    wireguard-tools
+    nodejs_22
   ];
   ############################################
   # This value determines the NixOS release from which the default

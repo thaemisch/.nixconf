@@ -8,7 +8,7 @@
     dconf-hm.enable = true;
 
     vscode-hm.enable = true;
+    zed-hm.enable = true;
     kitty-hm.enable = true;
-    discord-hm.enable = true;
   };
   }

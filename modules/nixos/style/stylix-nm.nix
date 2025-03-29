@@ -12,12 +12,13 @@
       cursor = {
         package = pkgs.nordzy-cursor-theme;
         name = "Nordzy-cursors-white";
+        size = 20;
       };
 
       fonts = {
         monospace = {
-          package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-          name = "JetBrainsMono Nerd Font Mono";
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "JetBrainsMono Nerd Font";
         };
         sansSerif = {
           package = pkgs.dejavu_fonts;

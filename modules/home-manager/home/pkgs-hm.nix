@@ -21,6 +21,8 @@
             tmux
             glow
             aria2
+            # terms
+            warp-terminal
             # git
             git
             gh
@@ -44,6 +46,13 @@
             nautilus
             # virtualisation
             bottles
+            distrobox
+            # images
+            rawtherapee
+            darktable
+            eog
+            # misc
+            arduino-ide
         ];
     };
 }
