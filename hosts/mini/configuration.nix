@@ -14,6 +14,7 @@
   # HOST SPECIFIC ############################ also change username in #USER section below
   gui-nm.enable = true;
   services.xserver.desktopManager.gnome.enable = false;
+  hardware.graphics.enable = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   networking.hostName = "mini";
@@ -21,6 +22,7 @@
   # BOOTLOADER ###############################
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.extraModulePackages = with config.boot.kernelPackages; [ evdi ];
   ############################################
   # NETWORKING ###############################
   networking.networkmanager.enable = true;
@@ -56,6 +58,11 @@
     brightnessctl
     wireguard-tools
     nodejs_22
+    usbutils
+    pciutils
+    pipewire
+    wireplumber
+    pavucontrol
   ];
   ############################################
   # This value determines the NixOS release from which the default

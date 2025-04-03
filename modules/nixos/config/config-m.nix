@@ -95,6 +95,11 @@
           gnome-disk-utility
           lxqt.lxqt-policykit
           docker-compose
+          pulseaudio
+          pipewire
+          wireplumber
+          pavucontrol   # GUI for audio settings
+          pamixer       # CLI volume control
         ];
     };
 }
