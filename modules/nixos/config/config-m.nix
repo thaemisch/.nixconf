@@ -48,20 +48,9 @@
 
         services.syncthing = {
           enable = true;
-          openDefaultPorts = true;
-          settings = {
-            devices = {
-              "laptop" = { id = "DEVICE-ID-GOES-HERE"; };
-              "mini" = { id = "DEVICE-ID-GOES-HERE"; };
-            };
-            folders = {
-              "Documents" = {
-                path = "/home/tim/Documents";
-                devices = [ "laptop" "mini" ];
-                ignorePerms = false;
-              };
-            };
-          };
+          user = "tim";
+          dataDir = "/home/tim/Documents/";
+          configDir = "/home/tim/.config/syncthing";
         };
 
         virtualisation.waydroid.enable = true;
