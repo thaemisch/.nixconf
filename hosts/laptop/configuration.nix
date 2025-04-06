@@ -36,7 +36,7 @@
   users.users.tim = {
     isNormalUser = true;
     description = "Tim";
-    extraGroups = [ "networkmanager" "wheel" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "dialout"];
     packages = with pkgs; [
     ];
     shell = pkgs.zsh;
