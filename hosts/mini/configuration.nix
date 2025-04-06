@@ -15,6 +15,10 @@
   gui-nm.enable = true;
   services.xserver.desktopManager.gnome.enable = false;
   hardware.graphics.enable = true;
+  hardware.graphics.extraPackages = with pkgs; [
+    intel-media-driver
+    intel-vaapi-driver
+  ];
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   networking.hostName = "mini";
@@ -38,7 +42,7 @@
   users.users.tim = {
     isNormalUser = true;
     description = "Tim";
-    extraGroups = [ "networkmanager" "wheel" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "openrazer"];
     packages = with pkgs; [
     ];
     shell = pkgs.zsh;
@@ -49,9 +53,14 @@
     users.tim = import ./home.nix;
   };
   ############################################
+  # MISC #####################################
+  hardware.openrazer.enable = true;
+  
+
+  ############################################
   # PACKAGES #################################
   programs.zsh.enable = true;
-
+  programs.noisetorch.enable = true;
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -63,6 +72,8 @@
     pipewire
     wireplumber
     pavucontrol
+    openrazer-daemon
+    polychromatic
   ];
   ############################################
   # This value determines the NixOS release from which the default

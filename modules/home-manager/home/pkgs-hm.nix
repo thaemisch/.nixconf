@@ -6,6 +6,7 @@
             # cli utils
             unzip
             neovim
+            tty-clock
             bat
             scc
             eza

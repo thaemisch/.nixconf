@@ -19,6 +19,14 @@
     };
   };
 
+  home.packages = [
+    (pkgs.discord.override {
+      withOpenASAR = true;
+      withVencord = true;
+    })
+    pkgs.moonlight-qt
+  ];
+
   programs.direnv = {
       enable = true;
       enableZshIntegration = true; # see note on other shells below

@@ -17,6 +17,7 @@
             ncmh = "cd ~/.nixconf/modules/home-manager";
             ncd = "cd ~/.nixconf/dots/";
             ncgit = "cd ~/.nixconf && sudo git add . && git commit -m \"auto commit\" && git push";
+            clock = "tty-clock -scD";
           };
           initExtra = "eval $(thefuck --alias)\n";
           autosuggestion.enable = true;

@@ -4,6 +4,7 @@
 // sourced from header module //
 
 "layer": "top",
+"output": ["HDMI-A-1", "DP-2"],
 "position": "top",
 "mod": "dock",
 "margin-left": 10,
@@ -19,7 +20,7 @@
 // positions generated based on config.ctl //
 "modules-left": ["custom/smallspacer","hyprland/workspaces","custom/spacer","custom/note","custom/waybar-mpris"],
 "modules-center": ["custom/padd","custom/l_end","custom/r_end","hyprland/window","custom/padd"],
-"modules-right": ["custom/padd","custom/l_end","memory","custom/smallspacer","cpu","custom/smallspacer","custom/smallspacer","pulseaudio","custom/smallspacer","battery","custom/smallspacer","clock","custom/padd"],
+"modules-right": ["custom/padd","custom/l_end","memory","custom/smallspacer","cpu","custom/smallspacer","custom/smallspacer","pulseaudio","custom/smallspacer","battery","custom/smallspacer", "network", "custom/smallspacer","clock","custom/padd"],
 
 
 "custom/smallspacer":{"format": " "},
@@ -45,7 +46,7 @@
 
 "pulseaudio": {
     "format": "{volume}%",
-    "format-bluetooth": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% ",
     "format-muted": "M",
     "format-icons": {
         "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
