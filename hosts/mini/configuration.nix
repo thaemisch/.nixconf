@@ -22,6 +22,16 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   networking.hostName = "mini";
+
+  services.kmonad = {
+    enable = true;
+    keyboards = {
+      myKMonadOutput = {
+        device = "/dev/input/by-id/usb-RDR_IQUNIX_MQ80_KB-event-kbd";
+        config = builtins.readFile /home/tim/.nixconf/dots/kmonad/75_ansi_us_intl.kbd;
+      };
+    };
+  };
   ############################################
   # BOOTLOADER ###############################
   boot.loader.systemd-boot.enable = true;
@@ -42,7 +52,7 @@
   users.users.tim = {
     isNormalUser = true;
     description = "Tim";
-    extraGroups = [ "networkmanager" "wheel" "docker" "openrazer"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "openrazer" "dialout"];
     packages = with pkgs; [
     ];
     shell = pkgs.zsh;
