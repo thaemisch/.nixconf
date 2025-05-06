@@ -25,6 +25,7 @@
       withVencord = true;
     })
     pkgs.moonlight-qt
+    pkgs.equibop
   ];
 
   programs.direnv = {

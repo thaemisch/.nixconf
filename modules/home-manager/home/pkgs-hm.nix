@@ -52,6 +52,8 @@
             rawtherapee
             darktable
             eog
+            # video
+            vlc
             # misc
             arduino-ide
         ];
