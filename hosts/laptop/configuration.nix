@@ -18,6 +18,16 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   networking.hostName = "laptop";
+
+  services.kmonad = {
+    enable = true;
+    keyboards = {
+      mzKMonadOutput = {
+        device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
+        config = builtins.readFile ../../dots/kmonad/laptopV2.kbd;
+      }
+    }
+  }
   ############################################
   # BOOTLOADER ###############################
   boot.loader.systemd-boot.enable = true;
