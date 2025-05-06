@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
   imports = [
@@ -14,6 +14,7 @@
   # HOST SPECIFIC ############################ also change username in #USER section below
   gui-nm.enable = true;
   services.xserver.desktopManager.gnome.enable = false;
+  services.xserver.layout = lib.mkForce "us";
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   networking.hostName = "laptop";
