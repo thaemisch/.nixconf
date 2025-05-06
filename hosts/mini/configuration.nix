@@ -28,7 +28,7 @@
     keyboards = {
       myKMonadOutput = {
         device = "/dev/input/by-id/usb-RDR_IQUNIX_MQ80_KB-event-kbd";
-        config = builtins.readFile /home/tim/.nixconf/dots/kmonad/75_ansi_us_intl.kbd;
+        config = builtins.readFile ../../dots/kmonad/75_ansi_us_intl.kbd;
       };
     };
   };
@@ -37,6 +37,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.extraModulePackages = with config.boot.kernelPackages; [ evdi ];
+  boot.blacklistedKernelModules = [ "pcspkr" ];
   ############################################
   # NETWORKING ###############################
   networking.networkmanager.enable = true;
