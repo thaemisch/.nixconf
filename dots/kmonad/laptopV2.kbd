@@ -73,8 +73,8 @@
   grv       1    2    3    4    5    6    7    8    9    0    -    =    bspc        home
   tab       q    w    e    r    t    y    u    i    o    p    [    ]    \           end 
   caps      a    s    d    f    g    h    j    k    l    ;    '    ret              pgup
-  lsft      z    x    c    v    b    n    m    ,    .    /    rsft        up        pgdn
-  lctl      lalt lmet           spc                 ralt rmet rctl   left down rght
+  lsft nubs z    x    c    v    b    n    m    ,    .    /    rsft        up        pgdn
+  lctl      lmet lalt           spc                 ralt rmet rctl   left down rght
 )
 
 
@@ -86,7 +86,7 @@
   grv       1    2    3    4    5    6    7    8    9    0    -    =    bspc        home
   @tNA      q    w    e    r    t    y    u    i    o    p    [    ]    \           end 
   @tS0      a    s    d    f    g    h    j    k    l    ;    '    @ret             pgup
-  @sft      z    x    c    v    b    n    m    ,    .    /    C-bspc      up        pgdn
+  @sft lsft z    x    c    v    b    n    m    ,    .    /    C-bspc      up        pgdn
   lctl      lalt lmet            spc                ralt _    rctl   left down rght
 )
 
@@ -100,7 +100,7 @@
   grv       1    2    3    4    5    6    7    8    9    0    -    =    bspc        home
   tab       q    w    e    r    t    y    bspc up   ret  p    [    ]    \           end 
   @tS0      @aa  @sc  @dm  @fs  g    h    left down rght ;    '    @ret             pgup
-  @sft      z    x    c    v    b    n    m    ,    .    /    C-bspc      up        pgdn
+  @sft lsft z    x    c    v    b    n    m    ,    .    /    C-bspc      up        pgdn
   lctl      lalt lmet           spc                 ralt _    rctl   left down rght
 )
 
@@ -109,7 +109,7 @@
   grv       1    2    3    4    5    6    7    8    9    0    -    =    bspc        home
   tab       q    w    @eu  r    t    @yc  @uu  @au  @uo  p    [    ]    \           end 
   @tS0      @ua  @us  d    f    g    h    @al  @ad  @ar  ;    '    @ret             pgup
-  @tS1      z    x    c    v    @sk  @nc  m    ,    .    @q    C-bspc      up        pgdn
+  @tS1 lsft z    x    c    v    @sk  @nc  m    ,    .    @q    C-bspc      up        pgdn
   lctl      lalt lmet           spc                 ralt _    rctl   left down rght
 )
 
@@ -118,7 +118,7 @@
   grv       1    2    3    4    5    6    7    8    9    0    -    =    bspc        home
   tab       q    w    @eu  r    t    y    @uU  i    @uO  p    [    ]    \           end 
   @tS0      @uA  @us  d    f    g    h    j    k    l    ;    '    @ret             pgup
-  @tS1      z    x    c    v    b    n    m    ,    .    /    C-bspc      up        pgdn
+  @tS1 lsft z    x    c    v    b    n    m    ,    .    /    C-bspc      up        pgdn
   lctl      lalt lmet           spc                 ralt _    rctl   left down rght
 )
 
