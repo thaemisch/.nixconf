@@ -28,6 +28,7 @@
       };
     };
   };
+  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
   ############################################
   # BOOTLOADER ###############################
   boot.loader.systemd-boot.enable = true;

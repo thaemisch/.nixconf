@@ -56,6 +56,7 @@
             vlc
             # misc
             arduino-ide
+	    processing
         ];
     };
 }
