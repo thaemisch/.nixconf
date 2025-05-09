@@ -7,8 +7,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./../../modules/nixos
-    inputs.home-manager.nixosModules.default
+    ./../../modules/nixos/config-m.nix
   ];
   ############################################
   # HOST SPECIFIC ############################ also change username in #USER section below

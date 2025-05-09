@@ -76,6 +76,37 @@
 
     fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
+    stylix = {
+      enable = true;
+      autoEnable = true;
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+      image = ../../../dots/wallpapers/wallpaper.png;
+      cursor = {
+        package = pkgs.nordzy-cursor-theme;
+        name = "Nordzy-cursors-white";
+        size = 20;
+      };
+
+      fonts = {
+        monospace = {
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "JetBrainsMono Nerd Font";
+        };
+        sansSerif = {
+          package = pkgs.dejavu_fonts;
+          name = "DejaVu Sans";
+        };
+        serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+        };
+        emoji = {
+          package = pkgs.noto-fonts-emoji;
+          name = "Noton Color Emoji";
+        };
+      };
+    };
+
 
     virtualisation.docker.enable = true;
 
@@ -122,15 +153,20 @@
       shell = pkgs.zsh;
     };
 
-    # Enable touchpad support (enabled default in most desktopManager).
-    # services.xserver.libinput.enable = true;
-
-    programs.zsh.enable = true;
-    programs.wshowkeys.enable = true;
+    programs = {
+      zsh.enable = true;
+      wshowkeys.enable = true;
+      hyprland.enable = true;
+    };
 
     nixpkgs.config.allowUnfree = true;
 
     environment.systemPackages = with pkgs; [
+      (waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+        })
+      )
+
       wget
       wl-clipboard
       gcc
@@ -149,6 +185,12 @@
       nodejs_22
       usbutils
       pciutils
+      dunst
+      libnotify
+      rofi-wayland
+      waybar-mpris
+      swww
+      blueman
     ];
   };
 }
