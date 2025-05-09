@@ -59,6 +59,7 @@
             processing
             # ides
             vscode
+            zed-editor
         ];
         programs.zsh = {
           enable = true;
