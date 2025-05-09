@@ -61,9 +61,8 @@
         };
       };
       openssh.enable = true;
-      pulseaudio.enable = true;
+      pulseaudio.enable = false;
       printing.enable = true;
-      rtkit.enable = true;
       flatpak.enable = true;
       pipewire = {
         enable = true;
