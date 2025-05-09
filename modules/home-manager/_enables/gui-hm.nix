@@ -6,10 +6,5 @@
   config = lib.mkIf config.gui-hm.enable {
     hyprland-hm.enable = true;
     dconf-hm.enable = true;
-
-    vscode-hm.enable = true;
-    zed-hm.enable = true;
-    kitty-hm.enable = true;
-    ghostty-hm.enable = true;
   };
   }

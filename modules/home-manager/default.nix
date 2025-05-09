@@ -2,7 +2,6 @@
     imports = [
       ./_enables
       ./home
-      ./programs
       ./wm
     ];
 
