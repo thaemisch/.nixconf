@@ -10,18 +10,9 @@
     };
 
     stylix.url = "github:danth/stylix";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: { 
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {      
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/nixos/configuration.nix 
-        inputs.home-manager.nixosModules.default
-        inputs.stylix.nixosModules.stylix
-      ];
-    };
+  outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {      
       specialArgs = {inherit inputs;};
       modules = [
@@ -36,23 +27,6 @@
         ./hosts/mini/configuration.nix
         inputs.home-manager.nixosModules.default
         inputs.stylix.nixosModules.stylix
-      ];
-    };
-    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {      
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/desktop/configuration.nix 
-        inputs.home-manager.nixosModules.default
-        inputs.stylix.nixosModules.stylix
-      ];
-    };
-    nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {      
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/wsl/configuration.nix 
-        inputs.home-manager.nixosModules.default
-        inputs.stylix.nixosModules.stylix
-        inputs.nixos-wsl.nixosModules.default
       ];
     };
   };

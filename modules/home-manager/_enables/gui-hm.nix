@@ -10,5 +10,6 @@
     vscode-hm.enable = true;
     zed-hm.enable = true;
     kitty-hm.enable = true;
+    ghostty-hm.enable = true;
   };
   }

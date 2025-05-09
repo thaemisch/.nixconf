@@ -6,17 +6,12 @@
 
 {
   imports = [
-      ./hardware-configuration.nix
-      ./../../modules/nixos
-      inputs.home-manager.nixosModules.default
-    ];
+    ./hardware-configuration.nix
+    ./../../modules/nixos
+    inputs.home-manager.nixosModules.default
+  ];
   ############################################
   # HOST SPECIFIC ############################ also change username in #USER section below
-  gui-nm.enable = true;
-  services.xserver.desktopManager.gnome.enable = false;
-  services.xserver.layout = lib.mkForce "us";
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
   networking.hostName = "laptop";
 
   services.kmonad = {
@@ -28,46 +23,14 @@
       };
     };
   };
-  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
-  ############################################
-  # BOOTLOADER ###############################
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  ############################################
-  # NETWORKING ###############################
-  networking.networkmanager.enable = true;
-  networking.wireguard.enable = true;
-  networking.firewall = {
-    allowedUDPPorts = [ 51820 ]; # Clients and peers can use the same port, see listenport
-  };
-
-  services.openssh.enable = true;
-
-  ############################################
-  # USER #####################################
-  users.users.tim = {
-    isNormalUser = true;
-    description = "Tim";
-    extraGroups = [ "networkmanager" "wheel" "docker" "dialout"];
-    packages = with pkgs; [
-    ];
-    shell = pkgs.zsh;
-  };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users.tim = import ./home.nix;
   };
-  ############################################
-  # PACKAGES #################################
-  programs.zsh.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    brightnessctl
-    wireguard-tools
-    nodejs_22
   ];
   ############################################
   # This value determines the NixOS release from which the default

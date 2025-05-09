@@ -30,7 +30,6 @@
   ;; Layer switch
     tGA (layer-switch game)
     tQW (layer-switch qwerty)
-    tNH (layer-switch no-homerow-mods)
 
   ;; Home row mods
     aa (tap-hold-next-release 300 a lalt)
@@ -75,10 +74,10 @@
 )
 
 (defsrc
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  -      ins  del      f13   f14   f15
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  f23      ins  del    f13   f14   f15
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc        home     f16   f17   f18
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \           end      f19   f20   f21
-  caps a    s    d    f    g    h    j    k    l    ;    '    ret              pgup     f22   f23
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret              pgup     f22
   lsft z    x    c    v    b    n    m    ,    .    /    rsft        up        pgdn
   lctl lalt lmet           spc                 f24  rmet rctl   left down rght
 )
@@ -88,38 +87,29 @@
 ;; Layers PERMANENTLY
 
 (deflayer qwerty
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  XX     ins  del      @tQW  @tGA  @tNH
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  XX     ins  del      @tQW  @tGA  f15
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc        home     f16   f17   f18
   @tNA q    w    e    r    t    y    u    i    o    p    [    ]    \           end      f19   f20   f21
-  @sft a    s    d    f    g    h    j    k    l    ;    '    @ret             pgup     f22   f23
-  @tS0 z    x    c    v    b    n    m    ,    .    /    C-bspc      up        pgdn
+  @tS0 a    s    d    f    g    h    j    k    l    ;    '    @ret             pgup     f22
+  @sft z    x    c    v    b    n    m    ,    .    /    C-bspc      up        pgdn
   lctl lalt lmet            spc                ralt _    rctl   left down rght
 )
 
 (deflayer home-row-mods
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  XX     ins  del      @tQW  @tGA  @tNH
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  XX     ins  del      @tQW  @tGA  f15
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc        home     f16   f17   f18
   @tNA q    w    e    r    t    y    u    i    o    p    [    ]    \           end      f19   f20   f21
-  @sft @aa  @sc  @dm  @fs  g    h    @js  @km  @lc  @sa  '    @ret             pgup     f22   f23
-  @tS0 z    x    c    v    b    n    m    ,    .    /    C-bspc      up        pgdn
+  @tS0 @aa  @sc  @dm  @fs  g    h    @js  @km  @lc  @sa  '    @ret             pgup     f22
+  @sft z    x    c    v    b    n    m    ,    .    /    C-bspc      up        pgdn
   lctl lalt lmet           spc                 ralt _    rctl   left down rght
 )
 
 (deflayer game
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  XX     ins  del      @tQW  @tGA  @tNH
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  XX     ins  del      @tQW  @tGA  f15
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc        @mut     f16   f17   f18
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \           @def     f19   f20   f21
-  @tS0 a    s    d    f    g    h    j    k    l    ;    '    ret              pgup     f22   f23
+  f23  a    s    d    f    g    h    j    k    l    ;    '    ret              pgup     f22
   lsft z    x    c    v    b    n    m    ,    .    /    rshift      up        pgdn
-  lctl lalt lmet           spc                 ralt _    rctl   left down rght
-)
-
-(deflayer no-homerow-mods
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  XX     ins  del      @tQW  @tGA  @tNH
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc        home     f16   f17   f18
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \           end      f19   f20   f21
-  @tNA a    s    d    f    g    h    j    k    l    ;  '    @ret               pgup     f22   f23
-  @tS0 z    x    c    v    b    n    m    ,    .    /    C-bspc      up        pgdn
   lctl lalt lmet           spc                 ralt _    rctl   left down rght
 )
 
@@ -132,8 +122,8 @@
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  XX     ins  del      @tQW  @tGA  f15
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc        home     f16   f17   f18
   tab  q    w    e    r    t    y    bspc up   ret  p    [    ]    \           end      f19   f20   f21
-  @sft @aa  @sc  @dm  @fs  g    h    left down rght ;    '    @ret             pgup     f22   f23
-  @tS0 z    x    c    v    b    n    m    ,    .    /    C-bspc      up        pgdn
+  @tS0 @aa  @sc  @dm  @fs  g    h    left down rght ;    '    @ret             pgup     f22
+  @sft z    x    c    v    b    n    m    ,    .    /    C-bspc      up        pgdn
   lctl lalt lmet           spc                 ralt _    rctl   left down rght
 )
 
@@ -141,8 +131,8 @@
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  XX     ins  del      @tQW  @tGA  f15
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc        home     f16   f17   f18
   tab  q    w    @eu  r    t    @yc  @uu  @au  @uo  p    [    ]    \           end      f19   f20   f21
-  @tS1 @ua  @us  d    f    g    h    @al  @ad  @ar  ;    '    @ret             pgup     f22   f23
-  @tS0 z    x    c    v    @sk  @nc  m    ,    .    @q    C-bspc      up        pgdn
+  @tS0 @ua  @us  d    f    g    h    @al  @ad  @ar  ;    '    @ret             pgup     f22
+  @tS1 z    x    c    v    @sk  @nc  m    ,    .    @q    C-bspc      up        pgdn
   lctl lalt lmet           spc                 ralt _    rctl   left down rght
 )
 
@@ -150,8 +140,8 @@
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  XX     ins  del      @tQW  @tGA  f15
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc        home     f16   f17   f18
   tab  q    w    @eu  r    t    y    @uU  i    @uO  p    [    ]    \           end      f19   f20   f21
-  @tS1 @uA  @us  d    f    g    h    j    k    l    ;    '    @ret             pgup     f22   f23
-  @tS0 z    x    c    v    b    n    m    ,    .    /    C-bspc      up        pgdn
+  @tS0 @uA  @us  d    f    g    h    j    k    l    ;    '    @ret             pgup     f22
+  @tS1 z    x    c    v    b    n    m    ,    .    /    C-bspc      up        pgdn
   lctl lalt lmet           spc                 ralt _    rctl   left down rght
 )
 

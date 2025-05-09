@@ -20,12 +20,11 @@
   };
 
   home.packages = [
-    (pkgs.discord.override {
-      withOpenASAR = true;
-      withVencord = true;
-    })
     pkgs.moonlight-qt
     pkgs.equibop
+    pkgs.python312Full
+    pkgs.python312Packages.pyserial
+    pkgs.python312Packages.pip
   ];
 
   programs.direnv = {

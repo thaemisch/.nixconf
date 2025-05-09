@@ -6,21 +6,12 @@
 
 {
   imports = [
-      ./hardware-configuration.nix
-      ./../../modules/nixos
-      inputs.home-manager.nixosModules.default
-    ];
+    ./hardware-configuration.nix
+    ./../../modules/nixos
+    inputs.home-manager.nixosModules.default
+  ];
   ############################################
   # HOST SPECIFIC ############################ also change username in #USER section below
-  gui-nm.enable = true;
-  services.xserver.desktopManager.gnome.enable = false;
-  hardware.graphics.enable = true;
-  hardware.graphics.extraPackages = with pkgs; [
-    intel-media-driver
-    intel-vaapi-driver
-  ];
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
   networking.hostName = "mini";
 
   services.kmonad = {
@@ -32,60 +23,24 @@
       };
     };
   };
-  ############################################
-  # BOOTLOADER ###############################
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.extraModulePackages = with config.boot.kernelPackages; [ evdi ];
-  boot.blacklistedKernelModules = [ "pcspkr" ];
-  ############################################
-  # NETWORKING ###############################
-  networking.networkmanager.enable = true;
-  networking.wireguard.enable = true;
-  networking.firewall = {
-    allowedUDPPorts = [ 51820 ]; # Clients and peers can use the same port, see listenport
-  };
-
-  services.openssh.enable = true;
-
-  ############################################
-  # USER #####################################
-  users.users.tim = {
-    isNormalUser = true;
-    description = "Tim";
-    extraGroups = [ "networkmanager" "wheel" "docker" "openrazer" "dialout"];
-    packages = with pkgs; [
-    ];
-    shell = pkgs.zsh;
-  };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users.tim = import ./home.nix;
   };
-  ############################################
-  # MISC #####################################
-  hardware.openrazer.enable = true;
   
 
   ############################################
   # PACKAGES #################################
-  programs.zsh.enable = true;
   programs.noisetorch.enable = true;
-  nixpkgs.config.allowUnfree = true;
+  hardware.openrazer.enable = true;
 
   environment.systemPackages = with pkgs; [
-    brightnessctl
-    wireguard-tools
-    nodejs_22
-    usbutils
-    pciutils
-    pipewire
-    wireplumber
-    pavucontrol
     openrazer-daemon
     polychromatic
   ];
+
+  
   ############################################
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

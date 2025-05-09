@@ -2,5 +2,6 @@
   imports = [
     ./zsh-hm.nix
     ./kitty-hm.nix
+    ./ghostty-hm.nix
   ];
   }
