@@ -188,5 +188,6 @@
     waybar-mpris
     swww
     blueman
+    python312Full
   ];
 }

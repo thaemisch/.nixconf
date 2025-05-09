@@ -5,7 +5,7 @@
     ../../modules/home-manager
   ];
   ################################
-  # HOST SPECIFIC ################  
+  # HOST SPECIFIC ################
   programs.zsh = {
     enable = true;
     shellAliases = {
@@ -18,11 +18,8 @@
   home.packages = [
     pkgs.moonlight-qt
     pkgs.equibop
-    pkgs.python312Full
-    pkgs.python312Packages.pyserial
-    pkgs.python312Packages.pip
   ];
-  
+
   home.file = {
     ".config/hypr".source = ../../dots/hyprland/hypr/hypr-mini;
   };
