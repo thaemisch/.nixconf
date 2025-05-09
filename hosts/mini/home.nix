@@ -21,6 +21,6 @@
   ];
 
   home.file = {
-    ".config/hypr".source = ../../dots/hyprland/hypr/hypr-mini;
+    ".config/hypr".source = ../../dots/hyprland/hypr/devices/mini;
   };
 }

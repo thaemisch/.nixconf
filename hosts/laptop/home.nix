@@ -14,6 +14,6 @@
   };
   
   home.file = {
-    ".config/hypr".source = ../../dots/hyprland/hypr/hypr-1mon;
+    ".config/hypr".source = ../../dots/hyprland/hypr/devices/laptop;
   };
 }
