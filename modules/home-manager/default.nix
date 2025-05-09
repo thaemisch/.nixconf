@@ -1,8 +1,8 @@
 { pkgs, lib, config, ...}: {    
     imports = [
-      ./_enables
-      ./home
-      ./wm
+      ./dconf-hm.nix
+      ./file-hm.nix
+      ./hm-hm.nix
+      ./pkgs-hm.nix
     ];
-
 }
