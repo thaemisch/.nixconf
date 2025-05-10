@@ -30,7 +30,7 @@
             # gui utils
             gscreenshot
             flameshot
-            eyedropper
+            hyprpicker
             # browsers
             google-chrome
             floorp
