@@ -190,5 +190,6 @@
     blueman
     python312Full
     vim
+    cliphist
   ];
 }
