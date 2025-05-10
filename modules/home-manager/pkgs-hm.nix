@@ -22,6 +22,7 @@
             tmux
             glow
             aria2
+            imagemagick
             # terms
             warp-terminal
             # git

@@ -189,5 +189,6 @@
     swww
     blueman
     python312Full
+    vim
   ];
 }
