@@ -34,6 +34,7 @@
   # PACKAGES #################################
   programs.noisetorch.enable = true;
   hardware.openrazer.enable = true;
+  programs.dconf.enable = true;
 
   environment.systemPackages = with pkgs; [
     openrazer-daemon

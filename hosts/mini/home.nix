@@ -20,6 +20,8 @@
     pkgs.equibop
   ];
 
+  services.easyeffects.enable = true;
+
   home.file = {
     ".config/hypr".source = ../../dots/hyprland/hypr/devices/mini;
   };

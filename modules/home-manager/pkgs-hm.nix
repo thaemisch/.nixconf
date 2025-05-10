@@ -29,6 +29,7 @@
             gh
             # gui utils
             gscreenshot
+            flameshot
             eyedropper
             # browsers
             google-chrome

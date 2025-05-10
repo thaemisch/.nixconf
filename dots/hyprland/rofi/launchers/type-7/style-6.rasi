@@ -16,7 +16,7 @@ configuration {
     display-filebrowser:        "FILES";
     display-window:             "WINDOWS";
 	drun-display-format:        "{name}";
-	window-format:              "{w} · {c}";
+	window-format:              "{w} · {c} ·  {t}";
 }
 
 /*****----- Global Properties -----*****/
@@ -43,7 +43,7 @@ window {
 
     /* properties for all widgets */
     enabled:                     true;
-    border-radius:               15px;
+    border-radius:               20px;
     cursor:                      "default";
     background-color:            @background;
 }
@@ -125,8 +125,8 @@ button selected {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     6;
-    lines:                       3;
+    columns:                     2;
+    lines:                       6;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -145,12 +145,11 @@ listview {
 element {
     enabled:                     true;
     spacing:                     10px;
-    padding:                     10px;
-    border-radius:               15px;
+    padding:                     4px;
+    border-radius:               100%;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      pointer;
-    orientation:                 vertical;
 }
 element normal.normal {
     background-color:            inherit;
@@ -179,7 +178,7 @@ element selected.active {
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
-    size:                        64px;
+    size:                        32px;
     cursor:                      inherit;
 }
 element-text {
@@ -195,16 +194,16 @@ message {
     background-color:            transparent;
 }
 textbox {
-    padding:                     15px;
-    border-radius:               15px;
+    padding:                     12px;
+    border-radius:               100%;
     background-color:            @background-alt;
     text-color:                  @foreground;
     vertical-align:              0.5;
     horizontal-align:            0.0;
 }
 error-message {
-    padding:                     15px;
-    border-radius:               15px;
+    padding:                     12px;
+    border-radius:               20px;
     background-color:            @background;
     text-color:                  @foreground;
 }
