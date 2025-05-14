@@ -189,7 +189,12 @@
     swww
     blueman
     python312Full
+    python312Packages.pip
     vim
     cliphist
+    rustup
+    rust-analyzer
+    gcc
+    inputs.gitzeug.packages.${pkgs.system}.gitzeug
   ];
 }

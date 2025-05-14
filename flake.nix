@@ -10,6 +10,7 @@
     };
 
     stylix.url = "github:danth/stylix";
+    gitzeug.url = "github:thaemisch/gitzeug";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {

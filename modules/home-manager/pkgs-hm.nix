@@ -23,6 +23,7 @@
             glow
             aria2
             imagemagick
+            yt-dlp
             # terms
             warp-terminal
             # git
