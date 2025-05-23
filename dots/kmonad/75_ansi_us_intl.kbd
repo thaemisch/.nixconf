@@ -100,7 +100,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \           @def     f19   f20   f21
   f23  a    s    d    f    g    h    j    k    l    ;    '    ret              pgup     f22
   lsft z    x    c    v    b    n    m    ,    .    /    rshift      up        pgdn
-  lctl lalt lmet           spc                 ralt _    rctl   left down rght
+  lctl lmet lalt           spc                 ralt _    rctl   left down rght
 )
 
 ;; --------------------------------------------------------------------------
