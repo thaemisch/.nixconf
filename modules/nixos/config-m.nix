@@ -43,7 +43,7 @@
     wireguard.enable = true;
     firewall = {
       enable = true;
-      allowedUDPPorts = [ 51820 ];
+      allowedUDPPorts = [ 51820 52020 ];
     };
   };
 
@@ -188,11 +188,17 @@
     waybar-mpris
     swww
     blueman
+<<<<<<< HEAD
+=======
+    python312
+    python312Packages.pip
+>>>>>>> 6a4d166226b7fa3605e14968e35615bf3c0c6793
     vim
     cliphist
     rustup
     rust-analyzer
     gcc
+    wine
     inputs.gitzeug.packages.${pkgs.system}.gitzeug
   ];
 }

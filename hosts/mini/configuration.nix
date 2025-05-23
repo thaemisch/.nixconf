@@ -28,7 +28,7 @@
     extraSpecialArgs = { inherit inputs; };
     users.tim = import ./home.nix;
   };
-  
+
 
   ############################################
   # PACKAGES #################################
