@@ -188,8 +188,6 @@
     waybar-mpris
     swww
     blueman
-    python312Full
-    python312Packages.pip
     vim
     cliphist
     rustup
