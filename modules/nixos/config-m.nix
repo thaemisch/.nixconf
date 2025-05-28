@@ -188,11 +188,6 @@
     waybar-mpris
     swww
     blueman
-<<<<<<< HEAD
-=======
-    python312
-    python312Packages.pip
->>>>>>> 6a4d166226b7fa3605e14968e35615bf3c0c6793
     vim
     cliphist
     rustup
