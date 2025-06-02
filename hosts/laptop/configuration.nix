@@ -13,6 +13,7 @@
   ############################################
   # HOST SPECIFIC ############################ also change username in #USER section below
   networking.hostName = "laptop";
+  services.tailscale.enable = true;
 
   services.kmonad = {
     enable = true;
