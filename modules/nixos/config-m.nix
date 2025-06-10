@@ -239,6 +239,7 @@ in
     swww
     blueman
     python312
+    python312Packages.pip
     vim
     cliphist
     rustup
