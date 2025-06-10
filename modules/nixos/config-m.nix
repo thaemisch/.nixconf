@@ -1,4 +1,16 @@
-{ pkgs, lib, config, inputs, ...}: {
+{ pkgs, lib, config, inputs, ...}: 
+let
+  pyforcael = pkgs.python3.withPackages (ps: [
+    ps.pip 
+    ps.materialyoucolor
+    ps.pyaudio
+  ]);
+in 
+{
+  imports = [
+    inputs.spicetify-nix.nixosModules.spicetify
+  ];
+
   time.timeZone = "Europe/Berlin";
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -57,6 +69,7 @@
         variant = "";
       };
     };
+    #desktopManager.plasma6.enable = true;
     openssh.enable = true;
     pulseaudio.enable = false;
     printing.enable = true;
@@ -71,13 +84,13 @@
 
   console.keyMap = "us";
 
-  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
-
   stylix = {
     enable = true;
     autoEnable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-    image = ../../dots/wallpapers/wallpaper.png;
+    #base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-terminal-dark.yaml";
+    #base16Scheme = "${pkgs.base16-schemes}/share/themes/synth-midnight-dark.yaml";
+    #image = /home/tim/.local/state/caelestia/wallpaper/current;
     cursor = {
       package = pkgs.nordzy-cursor-theme;
       name = "Nordzy-cursors-white";
@@ -104,9 +117,38 @@
     };
   };
 
+  programs.spicetify = 
+  let
+    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+  in 
+  {
+    enable = true;
+
+    enabledExtensions = with spicePkgs.extensions; [
+      fullAppDisplay
+    ];
+
+    theme = lib.mkForce spicePkgs.themes.ziro; # ziro sleek bloom
+    colorScheme = lib.mkForce "blue-dark";
+    wayland = true;
+    experimentalFeatures = true;
+  };
+
+ #   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
+
+  fonts.packages = with pkgs; [
+    ibm-plex
+    material-symbols
+    nerd-fonts.jetbrains-mono
+  ];
+
 
   virtualisation.docker.enable = true;
-
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["tim"];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+  
   security.polkit.enable = true;
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
@@ -144,16 +186,24 @@
   users.users.tim = {
     isNormalUser = true;
     description = "Tim";
-    extraGroups = [ "networkmanager" "wheel" "docker" "openrazer" "dialout"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "openrazer" "dialout" "libvirtd"];
     packages = with pkgs; [
     ];
     shell = pkgs.zsh;
   };
 
+  system.activationScripts.binFishSymlink = ''
+    mkdir -p /bin
+    ln -sfn ${pkgs.fish}/bin/fish /bin/fish
+    ln -sfn ${pyforcael}/bin/python3 /bin/python3
+    ln -sfn ${pyforcael}/bin/python3 /bin/python
+  '';
+
   programs = {
     zsh.enable = true;
     wshowkeys.enable = true;
     hyprland.enable = true;
+    kdeconnect.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -189,13 +239,31 @@
     swww
     blueman
     python312
-    python312Packages.pip
     vim
     cliphist
     rustup
     rust-analyzer
     gcc
+    networkmanagerapplet
     wine
     inputs.gitzeug.packages.${pkgs.system}.gitzeug
+    inputs.quickshell.packages.${pkgs.system}.default
+    qt6.full
+    qt5.full
+    libsForQt5.kirigami2
+    fish
+    fd
+    ddcutil
+    jq
+    cava
+    pyforcael
+    gtk3
+    virt-manager
+    qemu_kvm
+    spice
+    spice-gtk
+    gtk3
+    libepoxy
+    libglvnd
   ];
 }
