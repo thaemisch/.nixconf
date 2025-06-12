@@ -62,12 +62,16 @@ in
   services = {
     xserver = {
       enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = false;
       xkb = {
         layout = "us";
         variant = "";
       };
+    };
+    desktopManager = {
+      gnome.enable = false;
+    };
+    displayManager = {
+      gdm.enable = true;
     };
     #desktopManager.plasma6.enable = true;
     openssh.enable = true;
@@ -203,7 +207,6 @@ in
     zsh.enable = true;
     wshowkeys.enable = true;
     hyprland.enable = true;
-    kdeconnect.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -266,5 +269,7 @@ in
     gtk3
     libepoxy
     libglvnd
+    wf-recorder
+    playerctl
   ];
 }
