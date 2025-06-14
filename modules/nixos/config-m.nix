@@ -205,6 +205,7 @@ in
 
   programs = {
     zsh.enable = true;
+    fish.enable = true;
     wshowkeys.enable = true;
     hyprland.enable = true;
   };

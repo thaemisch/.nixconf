@@ -16,7 +16,7 @@ Scope {
         exclusiveZone: root.bar.implicitWidth - BorderConfig.thickness
     }
 
-    /*ExclusionZone {
+    ExclusionZone {
         anchors.top: true
     }
 
@@ -27,11 +27,11 @@ Scope {
     ExclusionZone {
         anchors.bottom: true
     }
-    */
 
     component ExclusionZone: StyledWindow {
         screen: root.screen
+        width: 0
+        height: 0
         name: "border-exclusion"
-        exclusiveZone: BorderConfig.thickness
     }
 }
