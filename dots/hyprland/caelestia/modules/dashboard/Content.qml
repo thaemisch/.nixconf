@@ -96,6 +96,17 @@ Item {
                 }
 
                 ClippingWrapperRectangle {
+                    id: weather
+
+                    radius: Appearance.rounding.normal
+                    color: "transparent"
+
+                    WeatherDedicated {
+                        shouldUpdate: visible && weather === view.currentItem
+                    }
+                }
+
+                ClippingWrapperRectangle {
                     id: media
 
                     radius: Appearance.rounding.normal

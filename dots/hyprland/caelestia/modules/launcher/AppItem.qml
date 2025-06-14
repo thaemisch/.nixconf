@@ -17,7 +17,7 @@ Item {
     anchors.right: parent?.right
 
     StateLayer {
-        radius: Appearance.rounding.full
+        radius: Appearance.rounding.norrmal
 
         function onClicked(): void {
             Apps.launch(root.modelData);

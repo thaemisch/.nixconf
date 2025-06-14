@@ -92,9 +92,9 @@ Item {
         opacity: child.current === this ? 1 : 0
 
         transform: Rotation {
-            angle: 90
-            origin.x: text.implicitHeight / 2
-            origin.y: text.implicitHeight / 2
+            angle: 270
+            origin.x: text.implicitWidth / 2
+            origin.y: text.implicitWidth / 2
         }
 
         width: implicitHeight

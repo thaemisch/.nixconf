@@ -235,7 +235,6 @@ in
     nodejs_22
     usbutils
     pciutils
-    dunst
     libnotify
     rofi-wayland
     waybar-mpris
@@ -271,5 +270,7 @@ in
     libglvnd
     wf-recorder
     playerctl
+    hyprshot
+    figlet
   ];
 }

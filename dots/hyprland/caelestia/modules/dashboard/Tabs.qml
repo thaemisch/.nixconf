@@ -29,6 +29,11 @@ Item {
         }
 
         Tab {
+            iconName: "partly_cloudy_day"
+            text: qsTr("Weather")
+        }
+
+        Tab {
             iconName: "queue_music"
             text: qsTr("Media")
         }
