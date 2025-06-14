@@ -35,8 +35,6 @@
             # browsers
             google-chrome
             floorp
-            # music
-            spotify
             # notes
             obsidian
             xournalpp
@@ -82,7 +80,6 @@
             ncgit = "cd ~/.nixconf && sudo git add . && git commit -m \"auto commit\" && git push";
             clock = "tty-clock -scD";
           };
-          initExtra = "eval $(thefuck --alias)\n";
           autosuggestion.enable = true;
           enableCompletion = true;
           oh-my-zsh = {
@@ -104,9 +101,9 @@
             enableZshIntegration = true;
             settings = {
               background-blur = true;
-              background-opacity = "0.8";
-              window-padding-x = "8";
-              window-padding-y = "8";
+              background-opacity = "1";
+              window-padding-x = "0";
+              window-padding-y = "0";
               window-decoration = "none";
               clipboard-read = "allow";
               clipboard-write = "allow";

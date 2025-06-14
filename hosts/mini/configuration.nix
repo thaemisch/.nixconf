@@ -13,6 +13,7 @@
   ############################################
   # HOST SPECIFIC ############################ also change username in #USER section below
   networking.hostName = "mini";
+  services.tailscale.enable = true;
 
   services.kmonad = {
     enable = true;
@@ -39,6 +40,12 @@
   environment.systemPackages = with pkgs; [
     openrazer-daemon
     polychromatic
+    davinci-resolve
+    reaper
+    reaper-sws-extension
+    reaper-reapack-extension
+    helm
+    lmms
   ];
 
   

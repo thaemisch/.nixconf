@@ -6,6 +6,7 @@
       enableZshIntegration = true; # see note on other shells below
       nix-direnv.enable = true;
     };
+    services.kdeconnect.enable = true;
 
     home.username = "tim";
     home.homeDirectory = "/home/tim";
