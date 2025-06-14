@@ -82,8 +82,15 @@
           };
           autosuggestion.enable = true;
           enableCompletion = true;
+          zplug = {
+            enable = true;
+            plugins = [
+              { name = "MichaelAquilina/zsh-auto-notify"; }
+            ];
+          };
           oh-my-zsh = {
             enable = true;
+            plugins = [ "git" "web-search" "themes" "tailscale" "sudo" "safe-paste" "rust" "extract" "wd" ];
             theme = "agnoster";
           };
         };
@@ -99,7 +106,7 @@
         programs.ghostty = {
             enable = true;
             enableZshIntegration = true;
-            settings = {
+            settings = { 
               background-blur = true;
               background-opacity = "1";
               window-padding-x = "0";
@@ -110,7 +117,5 @@
               clipboard-trim-trailing-spaces = true;
             };
         };
-        programs.fish.enable = true;
-        programs.starship.enable = true;
     };
 }

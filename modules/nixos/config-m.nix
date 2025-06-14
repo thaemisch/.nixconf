@@ -196,6 +196,9 @@ in
     shell = pkgs.zsh;
   };
 
+
+  home-manager.backupFileExtension = "hm-backup";
+
   system.activationScripts.binFishSymlink = ''
     mkdir -p /bin
     ln -sfn ${pkgs.fish}/bin/fish /bin/fish
