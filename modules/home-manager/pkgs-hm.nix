@@ -15,7 +15,6 @@
             btop
             gping
             speedtest-cli
-            thefuck
             fzf
             neofetch
             onefetch
