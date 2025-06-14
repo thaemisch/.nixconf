@@ -12,14 +12,14 @@ Row {
     rightPadding: padding * 3
 
     Resource {
-        value1: Math.min(1, SystemUsage.gpuTemp / 90)
-        value2: SystemUsage.gpuPerc
+        value1: SystemUsage.gpuPerc
+        value2: Math.min(1, SystemUsage.gpuTemp / 90)
 
-        label1: `${Math.ceil(SystemUsage.gpuTemp)}°C`
-        label2: `${Math.round(SystemUsage.gpuPerc * 100)}%`
+        label1: `${Math.round(SystemUsage.gpuPerc * 100)}%`
+        label2: `${Math.ceil(SystemUsage.gpuTemp)}°C`
 
-        sublabel1: qsTr("GPU temp")
-        sublabel2: qsTr("Usage")
+        sublabel1: qsTr("GPU")
+        sublabel2: qsTr("Temp")
     }
 
     Resource {
@@ -32,7 +32,7 @@ Row {
         label2: `${Math.ceil(SystemUsage.cpuTemp)}°C`
 
         sublabel1: qsTr("CPU")
-        sublabel2: qsTr("CPU temp")
+        sublabel2: qsTr("Temp")
     }
 
     Resource {

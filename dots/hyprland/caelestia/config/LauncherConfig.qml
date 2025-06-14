@@ -4,7 +4,7 @@ import Quickshell
 import QtQuick
 
 Singleton {
-    readonly property int maxShown: 8
+    readonly property int maxShown: 6
     readonly property int maxWallpapers: 9 // Warning: even numbers look bad
     readonly property string actionPrefix: "."
     readonly property Sizes sizes: Sizes {}
