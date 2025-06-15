@@ -15,6 +15,7 @@
     stylix.url = "github:danth/stylix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     gitzeug.url = "github:thaemisch/gitzeug";
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
@@ -32,6 +33,10 @@
         ./hosts/mini/configuration.nix
         inputs.home-manager.nixosModules.default
         inputs.stylix.nixosModules.stylix
+        inputs.vscode-server.nixosModules.default
+        ({ config, pkgs, ... }: {
+          services.vscode-server.enable = true;
+        })
       ];
     };
   };

@@ -11,6 +11,8 @@ in
     inputs.spicetify-nix.nixosModules.spicetify
   ];
 
+  programs.nix-ld.enable = true;
+
   time.timeZone = "Europe/Berlin";
   i18n = {
     defaultLocale = "en_US.UTF-8";
