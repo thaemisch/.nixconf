@@ -84,6 +84,7 @@ in
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    upower.enable = true;
   };
 
   console.keyMap = "us";
@@ -276,5 +277,9 @@ in
     playerctl
     hyprshot
     figlet
+    upower
+    upower-notify
+    astal.powerprofiles
+    astal.battery
   ];
 }
