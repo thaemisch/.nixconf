@@ -24,7 +24,6 @@
         ./hosts/laptop/configuration.nix 
         inputs.home-manager.nixosModules.default
         inputs.stylix.nixosModules.stylix
-        inputs.spicetify-nix.nixosModules.default
       ];
     };
     nixosConfigurations.mini = nixpkgs.lib.nixosSystem {      
