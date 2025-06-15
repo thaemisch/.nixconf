@@ -4,7 +4,6 @@ import "root:/config"
 import Quickshell
 import Quickshell.Widgets
 import QtQuick
-import QtQuick.Controls
 
 Item {
     id: root
@@ -84,46 +83,16 @@ Item {
             Row {
                 id: row
 
-                ClippingWrapperRectangle {
-                    id: dash
-
-                    radius: Appearance.rounding.normal
-                    color: "transparent"
-
-                    Dash {
-                        shouldUpdate: visible && dash === view.currentItem
-                    }
+                Dash {
+                    shouldUpdate: visible && this === view.currentItem
                 }
 
-                ClippingWrapperRectangle {
-                    id: weather
-
-                    radius: Appearance.rounding.normal
-                    color: "transparent"
-
-                    WeatherDedicated {
-                        shouldUpdate: visible && weather === view.currentItem
-                    }
+                Media {
+                    shouldUpdate: visible && this === view.currentItem
+                    visibilities: root.visibilities
                 }
 
-                ClippingWrapperRectangle {
-                    id: media
-
-                    radius: Appearance.rounding.normal
-                    color: "transparent"
-
-                    Media {
-                        shouldUpdate: visible && media === view.currentItem
-                        visibilities: root.visibilities
-                    }
-                }
-
-                ClippingWrapperRectangle {
-                    radius: Appearance.rounding.normal
-                    color: "transparent"
-
-                    Performance {}
-                }
+                Performance {}
             }
 
             Behavior on contentX {

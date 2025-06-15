@@ -55,5 +55,43 @@ Singleton {
             const active = root.active;
             return active ? active[prop] ?? "Invalid property" : "No active player";
         }
+
+        function list(): string {
+            return root.list.map(p => p.identity).join("\n");
+        }
+
+        function play(): void {
+            const active = root.active;
+            if (active?.canPlay)
+                active.play();
+        }
+
+        function pause(): void {
+            const active = root.active;
+            if (active?.canPause)
+                active.pause();
+        }
+
+        function playPause(): void {
+            const active = root.active;
+            if (active?.canTogglePlaying)
+                active.togglePlaying();
+        }
+
+        function previous(): void {
+            const active = root.active;
+            if (active?.canGoPrevious)
+                active.previous();
+        }
+
+        function next(): void {
+            const active = root.active;
+            if (active?.canGoNext)
+                active.next();
+        }
+
+        function stop(): void {
+            root.active?.stop();
+        }
     }
 }

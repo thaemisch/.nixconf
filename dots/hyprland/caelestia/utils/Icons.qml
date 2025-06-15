@@ -157,7 +157,7 @@ Singleton {
     }
 
     function getAppIcon(name: string, fallback: string): string {
-        return Quickshell.iconPath(getDesktopEntry(name)?.icon, "nix-snowflake")
+        return Quickshell.iconPath(getDesktopEntry(name)?.icon, "nix-snowflake");
     }
 
     function getAppCategoryIcon(name: string, fallback: string): string {

@@ -22,6 +22,9 @@ Item {
         const th = tray.implicitHeight;
         const trayItems = tray.items;
 
+        const no = statusIconsInner.notificationsstatus;
+        const noy = statusIcons.y + statusIconsInner.y + no.y - spacing / 2;
+
         const n = statusIconsInner.network;
         const ny = statusIcons.y + statusIconsInner.y + n.y - spacing / 2;
 
@@ -37,6 +40,10 @@ Item {
 
             popouts.currentName = `traymenu${index}`;
             popouts.currentCenter = Qt.binding(() => tray.y + item.y + item.implicitHeight / 2);
+            popouts.hasCurrent = true;
+        } else if (y >= noy && y <= noy + no.implicitHeight + spacing) {
+            popouts.currentName = "notificationsstatus";
+            popouts.currentCenter = Qt.binding(() => statusIcons.y + statusIconsInner.y + no.y + no.implicitHeight / 2);
             popouts.hasCurrent = true;
         } else if (y >= ny && y <= ny + n.implicitHeight + spacing) {
             popouts.currentName = "network";
@@ -59,7 +66,7 @@ Item {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
 
-    implicitWidth: child.implicitWidth + BorderConfig.thickness * 2
+    implicitWidth: child.implicitWidth + Config.border.thickness * 2
 
     Item {
         id: child
@@ -93,8 +100,8 @@ Item {
 
             MouseArea {
                 anchors.fill: parent
-                anchors.leftMargin: -BorderConfig.thickness
-                anchors.rightMargin: -BorderConfig.thickness
+                anchors.leftMargin: -Config.border.thickness
+                anchors.rightMargin: -Config.border.thickness
 
                 onWheel: event => {
                     const activeWs = Hyprland.activeClient?.workspace?.name;

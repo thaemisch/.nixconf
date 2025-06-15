@@ -11,13 +11,13 @@ Item {
     required property DesktopEntry modelData
     required property PersistentProperties visibilities
 
-    implicitHeight: LauncherConfig.sizes.itemHeight
+    implicitHeight: Config.launcher.sizes.itemHeight
 
     anchors.left: parent?.left
     anchors.right: parent?.right
 
     StateLayer {
-        radius: Appearance.rounding.norrmal
+        radius: Appearance.rounding.full
 
         function onClicked(): void {
             Apps.launch(root.modelData);
@@ -34,7 +34,7 @@ Item {
         IconImage {
             id: icon
 
-            source: Quickshell.iconPath(root.modelData?.icon, Qt.resolvedUrl("root:/assets/category.svg"))
+            source: Quickshell.iconPath(root.modelData?.icon, "image-missing")
             implicitSize: parent.height * 0.8
 
             anchors.verticalCenter: parent.verticalCenter

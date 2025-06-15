@@ -8,6 +8,7 @@ import Quickshell
 import Quickshell.Wayland
 import Quickshell.Hyprland
 import QtQuick
+import QtQuick.Effects
 
 Variants {
     model: Quickshell.screens
@@ -32,9 +33,9 @@ Variants {
 
             mask: Region {
                 x: bar.implicitWidth
-                y: BorderConfig.thickness
-                width: win.width - bar.implicitWidth - BorderConfig.thickness
-                height: win.height - BorderConfig.thickness * 2
+                y: Config.border.thickness
+                width: win.width - bar.implicitWidth - Config.border.thickness
+                height: win.height - Config.border.thickness * 2
                 intersection: Intersection.Xor
 
                 regions: regions.instances
@@ -54,7 +55,7 @@ Variants {
                     required property Item modelData
 
                     x: modelData.x + bar.implicitWidth
-                    y: modelData.y + BorderConfig.thickness
+                    y: modelData.y + Config.border.thickness
                     width: modelData.width
                     height: modelData.height
                     intersection: Intersection.Subtract
@@ -100,8 +101,12 @@ Variants {
                 }
             }
 
-            LayerShadow {
+            MultiEffect {
+                anchors.fill: source
                 source: background
+                shadowEnabled: true
+                blurMax: 15
+                shadowColor: Qt.alpha(Colours.palette.m3shadow, 0.7)
             }
 
             PersistentProperties {

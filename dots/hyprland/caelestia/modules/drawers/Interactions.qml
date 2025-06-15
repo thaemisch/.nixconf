@@ -16,12 +16,12 @@ MouseArea {
 
     property bool osdHovered
     property point dragStart
-    property bool dashboardShortcutActive: false
-    property bool osdShortcutActive: false
+    property bool dashboardShortcutActive
+    property bool osdShortcutActive
 
     function withinPanelHeight(panel: Item, x: real, y: real): bool {
-        const panelY = BorderConfig.thickness + panel.y;
-        return y >= panelY - BorderConfig.rounding && y <= panelY + panel.height + BorderConfig.rounding;
+        const panelY = Config.border.thickness + panel.y;
+        return y >= panelY - Config.border.rounding && y <= panelY + panel.height + Config.border.rounding;
     }
 
     function inRightPanel(panel: Item, x: real, y: real): bool {
@@ -30,7 +30,7 @@ MouseArea {
 
     function inTopPanel(panel: Item, x: real, y: real): bool {
         const panelX = bar.implicitWidth + panel.x;
-        return y < BorderConfig.thickness + panel.y + panel.height && x >= panelX - BorderConfig.rounding && x <= panelX + panel.width + BorderConfig.rounding;
+        return y < Config.border.thickness + panel.y + panel.height && x >= panelX - Config.border.rounding && x <= panelX + panel.width + Config.border.rounding;
     }
 
     anchors.fill: parent
@@ -51,10 +51,13 @@ MouseArea {
         }
     }
 
-    onPositionChanged: ({x, y}) => {
+    onPositionChanged: ({
+            x,
+            y
+        }) => {
         // Show osd on hover
         const showOsd = inRightPanel(panels.osd, x, y);
-        
+
         // Always update visibility based on hover if not in shortcut mode
         if (!osdShortcutActive) {
             visibilities.osd = showOsd;
@@ -68,15 +71,15 @@ MouseArea {
         // Show/hide session on drag
         if (pressed && withinPanelHeight(panels.session, x, y)) {
             const dragX = x - dragStart.x;
-            if (dragX < -SessionConfig.dragThreshold)
+            if (dragX < -Config.session.dragThreshold)
                 visibilities.session = true;
-            else if (dragX > SessionConfig.dragThreshold)
+            else if (dragX > Config.session.dragThreshold)
                 visibilities.session = false;
         }
 
         // Show dashboard on hover
         const showDashboard = inTopPanel(panels.dashboard, x, y);
-        
+
         // Always update visibility based on hover if not in shortcut mode
         if (!dashboardShortcutActive) {
             visibilities.dashboard = showDashboard;
@@ -100,51 +103,51 @@ MouseArea {
 
     // Monitor individual visibility changes
     Connections {
-        target: visibilities
-        
+        target: root.visibilities
+
         function onLauncherChanged() {
             // If launcher is hidden, clear shortcut flags for dashboard and OSD
-            if (!visibilities.launcher) {
-                dashboardShortcutActive = false;
-                osdShortcutActive = false;
-                
+            if (!root.visibilities.launcher) {
+                root.dashboardShortcutActive = false;
+                root.osdShortcutActive = false;
+
                 // Also hide dashboard and OSD if they're not being hovered
-                const inDashboardArea = inTopPanel(panels.dashboard, mouseX, mouseY);
-                const inOsdArea = inRightPanel(panels.osd, mouseX, mouseY);
-                
+                const inDashboardArea = root.inTopPanel(root.panels.dashboard, root.mouseX, root.mouseY);
+                const inOsdArea = root.inRightPanel(root.panels.osd, root.mouseX, root.mouseY);
+
                 if (!inDashboardArea) {
-                    visibilities.dashboard = false;
+                    root.visibilities.dashboard = false;
                 }
                 if (!inOsdArea) {
-                    visibilities.osd = false;
-                    osdHovered = false;
+                    root.visibilities.osd = false;
+                    root.osdHovered = false;
                 }
             }
         }
-        
+
         function onDashboardChanged() {
-            if (visibilities.dashboard) {
+            if (root.visibilities.dashboard) {
                 // Dashboard became visible, immediately check if this should be shortcut mode
-                const inDashboardArea = inTopPanel(panels.dashboard, mouseX, mouseY);
+                const inDashboardArea = root.inTopPanel(root.panels.dashboard, root.mouseX, root.mouseY);
                 if (!inDashboardArea) {
-                    dashboardShortcutActive = true;
+                    root.dashboardShortcutActive = true;
                 }
             } else {
                 // Dashboard hidden, clear shortcut flag
-                dashboardShortcutActive = false;
+                root.dashboardShortcutActive = false;
             }
         }
-        
+
         function onOsdChanged() {
-            if (visibilities.osd) {
+            if (root.visibilities.osd) {
                 // OSD became visible, immediately check if this should be shortcut mode
-                const inOsdArea = inRightPanel(panels.osd, mouseX, mouseY);
+                const inOsdArea = root.inRightPanel(root.panels.osd, root.mouseX, root.mouseY);
                 if (!inOsdArea) {
-                    osdShortcutActive = true;
+                    root.osdShortcutActive = true;
                 }
             } else {
                 // OSD hidden, clear shortcut flag
-                osdShortcutActive = false;
+                root.osdShortcutActive = false;
             }
         }
     }

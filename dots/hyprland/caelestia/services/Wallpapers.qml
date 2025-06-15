@@ -11,9 +11,10 @@ Singleton {
 
     readonly property string currentNamePath: `${Paths.state}/wallpaper/last.txt`.slice(7)
     readonly property string path: `${Paths.pictures}/Wallpapers`.slice(7)
+    readonly property list<string> extensions: ["jpg", "jpeg", "png", "webp", "tif", "tiff"]
 
     readonly property list<Wallpaper> list: wallpapers.instances
-    property bool showPreview: true
+    property bool showPreview: false
     readonly property string current: showPreview ? previewPath : actualCurrent
     property string previewPath
     property string actualCurrent
@@ -51,6 +52,22 @@ Singleton {
 
     reloadableId: "wallpapers"
 
+    IpcHandler {
+        target: "wallpaper"
+
+        function get(): string {
+            return root.actualCurrent;
+        }
+
+        function set(path: string): void {
+            root.setWallpaper(path);
+        }
+
+        function list(): string {
+            return root.list.map(w => w.path).join("\n");
+        }
+    }
+
     FileView {
         path: root.currentNamePath
         watchChanges: true
@@ -81,10 +98,9 @@ Singleton {
 
     Process {
         running: true
-        command: ["fd", ".", root.path, "-t", "f", "-e", "jpg", "-e", "jpeg", "-e", "png", "-e", "svg"]
-        stdout: SplitParser {
-            splitMarker: ""
-            onRead: data => wallpapers.model = data.trim().split("\n")
+        command: ["find", root.path, "-type", "d", "-path", '*/.*', "-prune", "-o", "-not", "-name", '.*', "-type", "f", "-print"]
+        stdout: StdioCollector {
+            onStreamFinished: wallpapers.model = text.trim().split("\n").filter(w => root.extensions.includes(w.slice(w.lastIndexOf(".") + 1))).sort()
         }
     }
 

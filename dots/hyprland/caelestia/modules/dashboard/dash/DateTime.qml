@@ -8,7 +8,7 @@ Item {
 
     anchors.top: parent.top
     anchors.bottom: parent.bottom
-    implicitWidth: DashboardConfig.sizes.dateTimeWidth
+    implicitWidth: Config.dashboard.sizes.dateTimeWidth
 
     StyledText {
         id: hours
@@ -48,7 +48,7 @@ Item {
         anchors.topMargin: -sep.font.pointSize * 0.45
 
         horizontalAlignment: Text.AlignHCenter
-        text: Time.format("MM")
+        text: Time.format("mm")
         color: Colours.palette.m3secondary
         font.pointSize: Appearance.font.size.extraLarge
         font.weight: 500
