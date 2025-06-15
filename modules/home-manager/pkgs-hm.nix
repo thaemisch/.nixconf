@@ -54,6 +54,7 @@
             # misc
             arduino-ide
             processing
+            rustdesk
             # ides
             vscode
             zed-editor
