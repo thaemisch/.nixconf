@@ -196,6 +196,9 @@ in
     shell = pkgs.zsh;
   };
 
+
+  home-manager.backupFileExtension = "hm-backup";
+
   system.activationScripts.binFishSymlink = ''
     mkdir -p /bin
     ln -sfn ${pkgs.fish}/bin/fish /bin/fish
@@ -205,6 +208,7 @@ in
 
   programs = {
     zsh.enable = true;
+    fish.enable = true;
     wshowkeys.enable = true;
     hyprland.enable = true;
   };
