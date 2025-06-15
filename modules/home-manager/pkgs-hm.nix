@@ -40,9 +40,6 @@
             xournalpp
             rnote
             lorien
-            # comms
-            whatsie
-            whatsapp-for-linux
             # files
             nautilus
             # virtualisation
@@ -108,9 +105,10 @@
             enableZshIntegration = true;
             settings = { 
               background-blur = true;
-              background-opacity = "1";
-              window-padding-x = "0";
-              window-padding-y = "0";
+              background-opacity = "0.95";
+              window-padding-x = "2";
+              window-padding-y = "5";
+              window-padding-color = "extend";
               window-decoration = "none";
               clipboard-read = "allow";
               clipboard-write = "allow";
