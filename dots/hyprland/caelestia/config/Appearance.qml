@@ -72,7 +72,7 @@ Singleton {
         readonly property int normal: 200
         readonly property int large: 300
         readonly property int extraLarge: 500
-        readonly property int expressiveFastSpatial: 200
+        readonly property int expressiveFastSpatial: 175
         readonly property int expressiveDefaultSpatial: 250
         readonly property int expressiveEffects: 100
     }
