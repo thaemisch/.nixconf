@@ -12,6 +12,7 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    caelestia-cli.url = "github:t7h-dots/cli";
     stylix.url = "github:danth/stylix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     gitzeug.url = "github:thaemisch/gitzeug";

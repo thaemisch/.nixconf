@@ -258,6 +258,7 @@ in
     wine
     inputs.gitzeug.packages.${pkgs.system}.gitzeug
     inputs.quickshell.packages.${pkgs.system}.default
+    inputs.caelestia-cli.packages.${pkgs.system}.default
     qt6.full
     qt5.full
     libsForQt5.kirigami2
