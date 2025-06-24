@@ -40,12 +40,6 @@
   environment.systemPackages = with pkgs; [
     openrazer-daemon
     polychromatic
-    davinci-resolve
-    reaper
-    reaper-sws-extension
-    reaper-reapack-extension
-    helm
-    lmms
   ];
 
   

@@ -2,4 +2,4 @@
 
 nm-applet --indicator &
 kdeconnect-indicator &
-qs -p .nixconf/dots/hyprland/caelestia &
+qs -p ~/Documents/t7h-dots/shell &

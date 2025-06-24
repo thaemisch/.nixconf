@@ -94,10 +94,7 @@ in
   stylix = {
     enable = true;
     autoEnable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-terminal-dark.yaml";
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/synth-midnight-dark.yaml";
-    #image = /home/tim/.local/state/caelestia/wallpaper/current;
+    base16Scheme = ../../dots/tt.yaml; 
     cursor = {
       package = pkgs.nordzy-cursor-theme;
       name = "Nordzy-cursors-white";
@@ -284,5 +281,7 @@ in
     upower-notify
     astal.powerprofiles
     astal.battery
+    pkg-config
+    openssl
   ];
 }
