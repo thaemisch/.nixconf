@@ -77,6 +77,7 @@
             ncd = "cd ~/.nixconf/dots/";
             ncgit = "cd ~/.nixconf && sudo git add . && git commit -m \"auto commit\" && git push";
             clock = "tty-clock -scD";
+            gz = "gitzeug";
           };
           autosuggestion.enable = true;
           enableCompletion = true;
