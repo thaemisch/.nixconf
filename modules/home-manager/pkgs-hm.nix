@@ -23,8 +23,6 @@
             aria2
             imagemagick
             yt-dlp
-            # terms
-            warp-terminal
             # git
             git
             gh
@@ -55,9 +53,15 @@
             arduino-ide
             processing
             rustdesk
+            multiviewer-for-f1
             # ides
             vscode
             zed-editor
+            # 3d printing
+            freecad-wayland
+            cura
+            # comms
+            cinny-desktop
         ];
         programs.zsh = {
           enable = true;

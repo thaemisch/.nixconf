@@ -10,7 +10,6 @@ in
   imports = [
     inputs.spicetify-nix.nixosModules.spicetify
   ];
-
   programs.nix-ld.enable = true;
 
   time.timeZone = "Europe/Berlin";
@@ -212,7 +211,11 @@ in
     wshowkeys.enable = true;
     hyprland.enable = true;
   };
-
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+  };
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -283,5 +286,7 @@ in
     astal.battery
     pkg-config
     openssl
+    nix-output-monitor
+    gemini-cli
   ];
 }
