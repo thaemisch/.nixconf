@@ -37,11 +37,6 @@
         inputs.vscode-server.nixosModules.default
         ({ config, pkgs, ... }: {
           services.vscode-server.enable = true;
-          nixpkgs.overlays = [
-            (self: super: {
-              python3 = super.python312;
-            })
-          ];
 
           environment.systemPackages = with pkgs; [
             python3
