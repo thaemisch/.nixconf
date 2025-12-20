@@ -251,8 +251,6 @@ in
     python312Packages.pip
     vim
     cliphist
-    rustup
-    rust-analyzer
     gcc
     networkmanagerapplet
     wine
