@@ -243,7 +243,7 @@ in
     usbutils
     pciutils
     libnotify
-    rofi-wayland
+    rofi
     waybar-mpris
     swww
     blueman
