@@ -60,8 +60,6 @@
             # 3d printing
             freecad-wayland
             cura
-            # comms
-            cinny-desktop
         ];
         programs.zsh = {
           enable = true;
