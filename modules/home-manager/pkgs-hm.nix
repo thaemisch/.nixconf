@@ -32,7 +32,7 @@
             hyprpicker
             # browsers
             google-chrome
-            floorp
+            floorp-bin
             # notes
             obsidian
             xournalpp
