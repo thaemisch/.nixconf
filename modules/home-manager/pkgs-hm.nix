@@ -52,7 +52,6 @@
             # misc
             arduino-ide
             processing
-            rustdesk
             multiviewer-for-f1
             # ides
             vscode
