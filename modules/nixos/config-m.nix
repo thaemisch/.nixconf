@@ -264,7 +264,11 @@ in
     qt6.qtsvg
     qt6.qtimageformats
     qt6.qtdeclarative
-    qt5.full
+    libsForQt5.qtbase
+    libsForQt5.qtwayland
+    libsForQt5.qtsvg
+    libsForQt5.qtimageformats
+    libsForQt5.qtdeclarative
     libsForQt5.kirigami2
     fish
     fd
