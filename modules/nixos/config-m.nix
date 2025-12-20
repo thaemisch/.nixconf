@@ -259,7 +259,11 @@ in
     inputs.gitzeug.packages.${pkgs.system}.gitzeug
     inputs.quickshell.packages.${pkgs.system}.default
     inputs.caelestia-cli.packages.${pkgs.system}.default
-    qt6.full
+    qt6.qtbase
+    qt6.qtwayland
+    qt6.qtsvg
+    qt6.qtimageformats
+    qt6.qtdeclarative
     qt5.full
     libsForQt5.kirigami2
     fish
