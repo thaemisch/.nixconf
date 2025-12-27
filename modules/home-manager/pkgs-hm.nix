@@ -55,6 +55,7 @@
             multiviewer-for-f1
             # ides
             vscode
+            antigravity
             zed-editor
             # 3d printing
             freecad-wayland
