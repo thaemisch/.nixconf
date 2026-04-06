@@ -12,6 +12,7 @@
   ];
   ############################################
   # HOST SPECIFIC ############################ also change username in #USER section below
+  nixpkgs.config.allowBroken = true;
   networking.hostName = "laptop";
   services.tailscale.enable = true;
 

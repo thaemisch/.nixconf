@@ -24,7 +24,16 @@
       modules = [
         ./hosts/laptop/configuration.nix
         inputs.home-manager.nixosModules.default
+        inputs.vscode-server.nixosModules.default
         inputs.stylix.nixosModules.stylix
+        ({ config, pkgs, ... }: {
+          services.vscode-server.enable = true;
+
+          environment.systemPackages = with pkgs; [
+            python3
+            python3Packages.pip
+          ];
+        })
       ];
     };
     nixosConfigurations.mini = nixpkgs.lib.nixosSystem {
