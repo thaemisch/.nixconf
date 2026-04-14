@@ -3,6 +3,9 @@
         nixpkgs.config.allowUnfree = true;
 
         home.packages = with pkgs; [
+            # ai
+            uv
+            claude-code
             # cli utils
             unzip
             neovim
@@ -16,7 +19,7 @@
             gping
             speedtest-cli
             fzf
-            neofetch
+            fastfetch
             onefetch
             tmux
             glow
@@ -32,7 +35,6 @@
             hyprpicker
             # browsers
             google-chrome
-            floorp-bin
             # notes
             obsidian
             xournalpp
@@ -53,13 +55,11 @@
             arduino-ide
             processing
             multiviewer-for-f1
+            teamspeak6-client
             # ides
             vscode
             antigravity
             zed-editor
-            # 3d printing
-            freecad-wayland
-            cura
         ];
         programs.zsh = {
           enable = true;

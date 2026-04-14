@@ -18,6 +18,10 @@
   home.packages = [
     pkgs.moonlight-qt
     pkgs.equibop
+    pkgs.kotlin
+    pkgs.android-studio
+    pkgs.jdk21
+    pkgs.android-tools
   ];
 
   services.easyeffects.enable = true;

@@ -7,9 +7,6 @@ let
   ]);
 in 
 {
-  imports = [
-    inputs.spicetify-nix.nixosModules.spicetify
-  ];
   programs.nix-ld.enable = true;
 
   time.timeZone = "Europe/Berlin";
@@ -118,23 +115,6 @@ in
         name = "Noton Color Emoji";
       };
     };
-  };
-
-  programs.spicetify = 
-  let
-    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-  in 
-  {
-    enable = true;
-
-    enabledExtensions = with spicePkgs.extensions; [
-      fullAppDisplay
-    ];
-
-    theme = lib.mkForce spicePkgs.themes.ziro; # ziro sleek bloom
-    colorScheme = lib.mkForce "blue-dark";
-    wayland = true;
-    experimentalFeatures = true;
   };
 
  #   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
@@ -247,8 +227,8 @@ in
     waybar-mpris
     swww
     blueman
-    python312
-    python312Packages.pip
+    # python312 and its pip package removed temporarily to avoid building
+    # python3.12 docs (sphinx/docutils failure during nix build).
     vim
     cliphist
     gcc
