@@ -14,21 +14,20 @@
     };
     caelestia-cli.url = "github:t7h-dots/cli";
     stylix.url = "github:danth/stylix";
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     gitzeug.url = "github:thaemisch/gitzeug";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {      
+    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ./hosts/laptop/configuration.nix 
+        ./hosts/laptop/configuration.nix
         inputs.home-manager.nixosModules.default
         inputs.stylix.nixosModules.stylix
       ];
     };
-    nixosConfigurations.mini = nixpkgs.lib.nixosSystem {      
+    nixosConfigurations.mini = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/mini/configuration.nix

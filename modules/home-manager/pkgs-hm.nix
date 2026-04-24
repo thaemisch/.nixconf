@@ -6,6 +6,7 @@
             # ai
             uv
             claude-code
+            opencode
             # cli utils
             unzip
             neovim
