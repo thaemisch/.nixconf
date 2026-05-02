@@ -3,10 +3,9 @@
 {
   programs.nixvim = {
     enable = true;
-    
     defaultEditor = true;
 
-    globals.mapleader = " "; # Space as leader key
+    globals.mapleader = " ";
 
     opts = {
       number = true;
@@ -26,9 +25,24 @@
     };
 
     plugins = {
-      lualine.enable = true;
+      # UI / Aesthetics
       web-devicons.enable = true;
+      lualine.enable = true;
+      bufferline.enable = true;
+      noice.enable = true;
+      notify.enable = true;
+      dressing.enable = true;
+      indent-blankline.enable = true;
+      todo-comments.enable = true;
+      fidget.enable = true;
       
+      # Dashboard
+      alpha = {
+        enable = true;
+        theme = "dashboard";
+      };
+
+      # File Explorer
       neo-tree = {
         enable = true;
         settings = {
@@ -37,16 +51,35 @@
         };
       };
 
-      telescope = {
+      # Keybinding helper
+      which-key = {
         enable = true;
-        keymaps = {
-          "<leader>ff" = "find_files";
-          "<leader>fg" = "live_grep";
-          "<leader>fb" = "buffers";
-          "<leader>fh" = "help_tags";
+      };
+
+      # Terminal
+      toggleterm = {
+        enable = true;
+        settings = {
+          direction = "float";
+          open_mapping = "[[<c-\>]]";
         };
       };
 
+      # Commenting
+      comment.enable = true;
+
+      # Fuzzy Finder
+      telescope = {
+        enable = true;
+        keymaps = {
+          "<leader>ff" = { action = "find_files"; options.desc = "Find files"; };
+          "<leader>fg" = { action = "live_grep"; options.desc = "Live grep"; };
+          "<leader>fb" = { action = "buffers"; options.desc = "Find buffers"; };
+          "<leader>fh" = { action = "help_tags"; options.desc = "Help tags"; };
+        };
+      };
+
+      # Syntax highlighting
       treesitter = {
         enable = true;
         settings = {
@@ -55,6 +88,7 @@
         };
       };
 
+      # LSP
       lsp = {
         enable = true;
         servers = {
@@ -75,11 +109,24 @@
           gt = "type_definition";
           gi = "implementation";
           K = "hover";
-          "<leader>r" = "rename";
-          "<leader>ca" = "code_action";
+          "<leader>la" = "code_action";
+          "<leader>lr" = "rename";
+          "<leader>lf" = "format";
         };
       };
 
+      # Formatters
+      conform-nvim = {
+        enable = true;
+        settings = {
+          format_on_save = {
+            lsp_fallback = true;
+            timeout_ms = 500;
+          };
+        };
+      };
+
+      # Completion
       cmp = {
         enable = true;
         settings = {
@@ -96,26 +143,51 @@
           };
         };
       };
-
       cmp-nvim-lsp.enable = true;
       cmp-buffer.enable = true;
       cmp-path.enable = true;
 
+      # Git
       gitsigns = {
         enable = true;
         settings.current_line_blame = true;
       };
       
+      # Editing tools
       nvim-autopairs.enable = true;
+      ts-autotag.enable = true;
     };
 
     keymaps = [
+      # Neotree
       {
         mode = "n";
         key = "<leader>e";
         action = "<cmd>Neotree toggle<cr>";
         options.desc = "Toggle Neotree";
       }
+      
+      # Buffer navigation
+      {
+        mode = "n";
+        key = "<S-h>";
+        action = "<cmd>bprevious<cr>";
+        options.desc = "Prev Buffer";
+      }
+      {
+        mode = "n";
+        key = "<S-l>";
+        action = "<cmd>bnext<cr>";
+        options.desc = "Next Buffer";
+      }
+      {
+        mode = "n";
+        key = "<leader>c";
+        action = "<cmd>bdelete<cr>";
+        options.desc = "Close Buffer";
+      }
+
+      # Split navigation
       {
         mode = "n";
         key = "<C-h>";
@@ -140,6 +212,23 @@
         action = "<C-w>l";
         options.desc = "Move to right split";
       }
+      
+      # Clear search highlights
+      {
+        mode = "n";
+        key = "<leader>h";
+        action = "<cmd>nohlsearch<cr>";
+        options.desc = "Clear Search Highlights";
+      }
     ];
+
+    # Which-key categories
+    extraConfigLua = ''
+      require("which-key").add({
+        { "<leader>f", group = "Find" },
+        { "<leader>l", group = "LSP" },
+        { "<leader>t", group = "Terminal" },
+      })
+    '';
   };
 }
