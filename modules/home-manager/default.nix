@@ -4,5 +4,6 @@
       ./file-hm.nix
       ./hm-hm.nix
       ./pkgs-hm.nix
+      ./nvchad.nix
     ];
 }
