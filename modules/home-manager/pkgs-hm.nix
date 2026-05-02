@@ -5,7 +5,7 @@
         home.packages = with pkgs; [
             # ai
             uv
-            claude-code
+            #claude-code
             opencode
             # cli utils
             unzip
@@ -26,7 +26,7 @@
             glow
             aria2
             imagemagick
-            yt-dlp
+            #yt-dlp
             # git
             git
             gh
@@ -44,7 +44,7 @@
             # files
             nautilus
             # virtualisation
-            bottles
+            #bottles
             distrobox
             # images
             rawtherapee
