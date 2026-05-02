@@ -7,6 +7,10 @@ let
   ]);
 in 
 {
+  imports = [
+    ./nixvim.nix
+  ];
+
   programs.nix-ld.enable = true;
 
   time.timeZone = "Europe/Berlin";

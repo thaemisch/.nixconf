@@ -16,6 +16,10 @@
     stylix.url = "github:danth/stylix";
     gitzeug.url = "github:thaemisch/gitzeug";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
@@ -26,6 +30,7 @@
         inputs.home-manager.nixosModules.default
         inputs.vscode-server.nixosModules.default
         inputs.stylix.nixosModules.stylix
+        inputs.nixvim.nixosModules.nixvim
         ({ config, pkgs, ... }: {
           services.vscode-server.enable = true;
 
@@ -43,6 +48,7 @@
         inputs.home-manager.nixosModules.default
         inputs.stylix.nixosModules.stylix
         inputs.vscode-server.nixosModules.default
+        inputs.nixvim.nixosModules.nixvim
         ({ config, pkgs, ... }: {
           services.vscode-server.enable = true;
 
