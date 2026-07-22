@@ -59,7 +59,6 @@
             teamspeak6-client
             # ides
             vscode
-            antigravity
             zed-editor
         ];
         programs.zsh = {

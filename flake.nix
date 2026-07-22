@@ -20,6 +20,10 @@
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
@@ -36,6 +40,9 @@
           environment.systemPackages = with pkgs; [
             python3
             python3Packages.pip
+            antigravity-nix.packages.x86_64-linux.default # Base App
+            antigravity-nix.packages.x86_64-linux.google-antigravity-ide # IDE
+            antigravity-nix.packages.x86_64-linux.google-antigravity-cli # CLI
           ];
         })
       ];
@@ -53,6 +60,9 @@
           environment.systemPackages = with pkgs; [
             python3
             python3Packages.pip
+            antigravity-nix.packages.x86_64-linux.default # Base App
+            antigravity-nix.packages.x86_64-linux.google-antigravity-ide # IDE
+            antigravity-nix.packages.x86_64-linux.google-antigravity-cli # CLI
           ];
         })
       ];

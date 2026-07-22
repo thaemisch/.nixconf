@@ -247,7 +247,6 @@ in
     libsForQt5.qtsvg
     libsForQt5.qtimageformats
     libsForQt5.qtdeclarative
-    libsForQt5.kirigami2
     fish
     fd
     ddcutil
