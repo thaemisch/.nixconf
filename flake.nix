@@ -28,41 +28,46 @@
 
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = { inherit inputs; };
       modules = [
         ./hosts/laptop/configuration.nix
         inputs.home-manager.nixosModules.default
         inputs.vscode-server.nixosModules.default
         inputs.stylix.nixosModules.stylix
-        ({ config, pkgs, ... }: {
+        # Added `inputs` to module arguments below
+        ({ config, pkgs, inputs, ... }: {
           services.vscode-server.enable = true;
 
           environment.systemPackages = with pkgs; [
             python3
             python3Packages.pip
-            antigravity-nix.packages.x86_64-linux.default # Base App
-            antigravity-nix.packages.x86_64-linux.google-antigravity-ide # IDE
-            antigravity-nix.packages.x86_64-linux.google-antigravity-cli # CLI
+            # Explicitly reference inputs.antigravity-nix
+            inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+            inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-ide
+            inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-cli
           ];
         })
       ];
     };
+
     nixosConfigurations.mini = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = { inherit inputs; };
       modules = [
         ./hosts/mini/configuration.nix
         inputs.home-manager.nixosModules.default
         inputs.stylix.nixosModules.stylix
         inputs.vscode-server.nixosModules.default
-        ({ config, pkgs, ... }: {
+        # Added `inputs` to module arguments below
+        ({ config, pkgs, inputs, ... }: {
           services.vscode-server.enable = true;
 
           environment.systemPackages = with pkgs; [
             python3
             python3Packages.pip
-            antigravity-nix.packages.x86_64-linux.default # Base App
-            antigravity-nix.packages.x86_64-linux.google-antigravity-ide # IDE
-            antigravity-nix.packages.x86_64-linux.google-antigravity-cli # CLI
+            # Explicitly reference inputs.antigravity-nix
+            inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+            inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-ide
+            inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-cli
           ];
         })
       ];
